@@ -33,10 +33,13 @@
         update_time
     </sql>
     <insert id="save"
-            parameterType="com.example.encore_spring_pjt.domain.BoardRequest">
+            parameterType="com.example.encore_spring_pjt.domain.BoardRequest"
+            useGeneratedKeys="true"
+            keyProperty="idx">
             INSERT Into ENCORE_BOARD_TBL(
-                <include refid="insertColumns"/>)
-            VALUES( #{title}, 
+                <include refid="selectColumns"/>)
+            VALUES( #{idx},
+                    #{title}, 
                     #{content},
                     #{writer},
                     0,
@@ -85,6 +88,7 @@
             resultType="com.example.encore_spring_pjt.domain.BoardResponse">
         SELECT *
         FROM ENCORE_BOARD_TBL
+        WHERE DELETE_YN = 0
     </select>
 
 </mapper>   

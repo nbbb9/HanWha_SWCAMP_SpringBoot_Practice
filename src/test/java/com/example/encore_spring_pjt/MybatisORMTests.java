@@ -20,21 +20,31 @@ public class MybatisORMTests {
     private BoardMapper boardMapper;
     @Test
     public void ormSave(){
-        System.out.println("debug >>> " + boardMapper);
-        BoardRequest request = new BoardRequest();
-        request.setTitle("ORM 수업 title");
-        request.setContent("Mapping content");
-        request.setWriter("encore writer");
-        request.setNoticeYn(true);
-        request.setSecretYn(true);
+        // System.out.println("debug >>> " + boardMapper);
+        // BoardRequest request = new BoardRequest();
+        // request.setTitle("ORM 수업 title");
+        // request.setContent("Mapping content");
+        // request.setWriter("encore writer");
+        // request.setNoticeYn(true);
+        // request.setSecretYn(true);
+        BoardRequest request = BoardRequest.builder()
+                                            .title("service")
+                                            .content("mapper")
+                                            .writer("encore")
+                                            .noticeYn(true)
+                                            .secretYn(true)
+                                            .build();
         boardMapper.save(request);
         System.out.println("debug >>> save success");
     }
     @Test
     public void ormFind() throws Exception{
         System.out.println("debug finder >>> ");
-        BoardRequest request = new BoardRequest();
-        request.setIdx(1);
+        // BoardRequest request = new BoardRequest();
+        // request.setIdx(1);
+        BoardRequest request = BoardRequest.builder()
+                                            .idx(1)
+                                            .build();
         BoardResponse response = boardMapper.findByIdx(request);
         System.out.println("debug find result >>> ");
         System.out.println(response);
@@ -47,11 +57,17 @@ public class MybatisORMTests {
     @Test
     public void ormUpdate(){
         System.out.println("debug update >>> ");
-        BoardRequest request = new BoardRequest();
-        request.setIdx(1);
-        request.setTitle("변경된 title");
-        request.setContent("변경된 content");
-        request.setWriter("변경된 writer");
+        // BoardRequest request = new BoardRequest();
+        // request.setIdx(1);
+        // request.setTitle("변경된 title");
+        // request.setContent("변경된 content");
+        // request.setWriter("변경된 writer");
+        BoardRequest request = BoardRequest.builder()
+                                            .idx(1)
+                                            .title("update2 title")
+                                            .content("update2 content")
+                                            .writer("update2 writer")
+                                            .build();
         boardMapper.updateByIdx(request);
         System.out.println("debug >>> update success");
     }
@@ -64,8 +80,11 @@ public class MybatisORMTests {
     @Test
     public void ormDelete(){
         System.out.println("debug delete >>> ");
-        BoardRequest request = new BoardRequest();
-        request.setIdx(1);
+        // BoardRequest request = new BoardRequest();
+        // request.setIdx(1);
+        BoardRequest request = BoardRequest.builder()
+                                            .idx(1)
+                                            .build();
         boardMapper.deleteByIdx(request);
         System.out.println("debug >>> delete success");
     }
