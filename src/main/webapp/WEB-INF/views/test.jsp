@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8"
         pageEncoding="UTF-8" %>
 
-test.jsp
+<html>
+    <body>
+        <center> test jsp </center>
+    </body>
+</html>

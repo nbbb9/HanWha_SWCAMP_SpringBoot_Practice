@@ -22,5 +22,7 @@ public interface BoardMapper {
     //delete - idx를 기준으로 삭제 (delete yn & delete time)
     public void deleteByIdx(BoardRequest params);
     //multifinder
-    public List<BoardResponse> findAll(); 
+    public List<BoardResponse> findAll();
+    //조회수 등가 메서드
+    public void updateByCnt(BoardRequest params); 
 }

@@ -9,6 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+//@Builder
 public class BoardResponse {
     private Integer idx;
     private String title;
@@ -17,7 +18,7 @@ public class BoardResponse {
     private Integer viewCnt;
     private boolean noticeYn;
     private boolean secretYn;
+    private boolean deleteYn;
     private LocalDateTime insertTime;
     private LocalDateTime updateTime;
-
 }
