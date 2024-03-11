@@ -1,6 +1,7 @@
 package com.example.encore_spring_pjt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,11 +27,13 @@ public class BoardServiceImpl implements BoardService{
         boardMapper.save(params);
         return params.getIdx();
     }
+    @Transactional
     @Override
-    public BoardResponse findBoard(BoardRequest params) {
+    public Optional<BoardResponse> findBoard(BoardRequest params) {
         System.out.println("debug >>> service findBoard ");
         boardMapper.updateByCnt(params);
-        return boardMapper.findByIdx(params);
+        Optional<BoardResponse> response = boardMapper.findByIdx(params);
+        return response;
     }
     @Transactional
     @Override
@@ -54,7 +57,6 @@ public class BoardServiceImpl implements BoardService{
     public int countBoard() {
         System.out.println("debug >>> service countBoard ");
         return 0;
-
     }
     
 }

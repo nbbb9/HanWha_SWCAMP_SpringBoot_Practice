@@ -1,6 +1,7 @@
 package com.example.encore_spring_pjt.ctrl.board;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +54,7 @@ public class BoardController {
         //view.jsp로부터 키(idx)값을 전달 받고 객체로 바인딩되서 service에 전달
         //response 객체를 반환받고 해당 response 객체 Model에 심어서 View 페이지로 전달 과정
 
-        BoardResponse response = boardService.findBoard(params);
+        Optional<BoardResponse> response = boardService.findBoard(params);
 
         model.addAttribute("response", response);
 
@@ -65,7 +66,7 @@ public class BoardController {
         System.out.println("debug >>> " + params);
         if(params.getIdx() != null){
             System.out.println("debug >>> update");
-            BoardResponse response = boardService.findBoard(params);
+            Optional<BoardResponse> response = boardService.findBoard(params);
             model.addAttribute("response", response);
         }
         return "write";

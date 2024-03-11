@@ -36,8 +36,7 @@
                                 <div class="col-sm-10" style="margin-top: 10px;">
                                     <input type="checkbox"
                                            id="noticeYn"
-                                           name="noticeYn"
-                                           checked="${boardResponse.noticeYn}"/>
+                                           name="noticeYn"/>
                                 </div>
                             </div>
 
@@ -98,6 +97,11 @@
 <script>
     /*<![CDATA[*/
     $(document).ready(function () {
+        if("${response.noticeYn}" == "true"){
+            $("#noticeYn").attr("checked", true);
+        }else{
+            $("#noticeYn").attr("checked", false);
+        }
         $("#btn").click(function () {
             alert("btn click");
             console.log("====================");

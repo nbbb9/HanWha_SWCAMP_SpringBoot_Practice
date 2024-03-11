@@ -38,7 +38,7 @@
         , #{writer}
         , 0
         , #{noticeYn}
-        , #{secretYn}
+        , false
         , false
         , now()
         , null)
